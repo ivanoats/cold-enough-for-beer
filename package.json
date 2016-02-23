@@ -18,7 +18,7 @@
         "options": {
           "url": "http://api.wunderground.com/api/conditions/q/WA/Seattle.json",
           "query": {
-            "key": "$WUNDERGROUND_KEY"
+            "key": "WUNDERGROUND_KEY"
           }
         }
       }
