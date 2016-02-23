@@ -1,0 +1,30 @@
+{
+  "name": "my-aerobatic-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/ivanoats/aerobatic-cf-demo.git"
+  },
+  "_aerobatic": {
+    "router": [
+      {
+        "path": "/api",
+        "module": "express-request-proxy",
+        "options": {
+          "url": "http://api.wunderground.com/api/conditions/q/WA/Seattle.json",
+          "query": {
+            "key": "$WUNDERGROUND_KEY"
+          }
+        }
+      }
+    ]
+  },
+  "author": "Ivan Storck",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/ivanoats/aerobatic-cf-demo#readme"
+}

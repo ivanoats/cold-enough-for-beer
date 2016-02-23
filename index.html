@@ -5,8 +5,20 @@
   <title>Aerobatic Demo</title>
 </head>
 <body>
-  <h1> Hello there!</h1>
-  <h2> this is an AWESOME NEW TAG! </h2>
-
+  <h1>Is it cold enough to store beer outside?</h1>
+  <h2 class="answer">Maybe? Checking.... Please stand by. </h2>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
+  <script>
+  $.get('http://api.wunderground.com/api/e6a4bb57676626e0/conditions/q/WA/Seattle.json', updater)
+  function updater(data) {
+    console.log(data.current_observation.temp_f);
+    var coldEnough = data.current_observation.temp_f <= 46;
+    if (coldEnough) {
+      $('h2.answer').text('HELL YEAH!');
+    } else {
+      $('h2.answer').text('No way, José');
+    }
+  };
+  </script>
 </body>
 </html>
