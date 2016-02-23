@@ -9,7 +9,7 @@
   <h2 class="answer">Maybe? Checking.... Please stand by. </h2>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
   <script>
-  $.get('http://api.wunderground.com/api/e6a4bb57676626e0/conditions/q/WA/Seattle.json', updater)
+  $.get('/api', updater)
   function updater(data) {
     console.log(data.current_observation.temp_f);
     var coldEnough = data.current_observation.temp_f <= 46;
