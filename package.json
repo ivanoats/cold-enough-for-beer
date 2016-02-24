@@ -18,6 +18,7 @@
       {
         "module": "express-request-proxy",
         "path": "/api",
+        "method": "GET",
         "options": {
           "url": "http://api.wunderground.com/api/$WUNDERGROUND_KEY/geolookup/q/autoip.json"
         }
