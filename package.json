@@ -17,10 +17,10 @@
       },
       {
         "module": "express-request-proxy",
-        "path": "/api",
+        "path": "/api/:lat/:long",
         "method": "GET",
         "options": {
-          "url": "http://api.wunderground.com/api/$WUNDERGROUND_KEY/geolookup/q/autoip.json"
+          "url": "http://api.wunderground.com/api/$WUNDERGROUND_KEY/conditions/geolookup/q/autoip.json"
         }
       }
     ]

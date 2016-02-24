@@ -8,19 +8,22 @@
   <h1>Is it cold enough to store beer outside?</h1>
   <h2 class="answer">Maybe. Checking.... Please stand by. </h2>
   <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js">
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js">
   </script>
   <script>
-  $.get('/api', updater);
-  function updater(data) {
-    console.log(data);
-    var coldEnough = data.current_observation.temp_f <= 46;
-    if (coldEnough) {
-      $('h2.answer').text('HELL YEAH!');
-    } else {
-      $('h2.answer').text('No way, José');
+
+    $.get('/api', updater);
+
+    function updater(data) {
+      console.log(data);
+      var coldEnough = data.current_observation.temp_f <= 46;
+      if (coldEnough) {
+        $('h2.answer').text('HELL YEAH!');
+      } else {
+        $('h2.answer').text('No way, José');
+      }
     }
-  }
+
   </script>
 </body>
 </html>
