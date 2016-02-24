@@ -1,10 +1,13 @@
-# Is it cold enough?
+# Is it cold enough to store beer outside?
 
 These two files demonstrate two Aerobatic.com hosting features:
 
 ##  Staging Branch
 
-The staging branch has the working app. Visit http://cold-enough-for-beer--staging.aerobatic.io
+The staging branch has the working app. It uses the [Weather Underground](https://www.wunderground.com/weather/api/d/docs?d=data/index&MR=1)
+api to geolocate your IP and find the temperature there.
+ 
+ Visit http://cold-enough-for-beer--staging.aerobatic.io
 See: [Deploy Settings](https://bitbucket.org/ivanoats/cold-enough-for-beer/addon/aerobatic-bitbucket-addon/aerobatic-app-dashboard)
 
 ## Express Request Proxy
