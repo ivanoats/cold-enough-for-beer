@@ -13,12 +13,15 @@
   "_aerobatic": {
     "router": [
       {
-        "path": "/api",
+        "module": "webpage"
+      },
+      {
         "module": "express-request-proxy",
+        "path": "/api",
         "options": {
-          "url": "http://api.wunderground.com/api/conditions/q/WA/Seattle.json",
+          "url": "http://api.wunderground.com/api/$WUNDERGROUND_KEY/geolookup/q/autoip.json",
           "query": {
-            "key": "WUNDERGROUND_KEY"
+            "key": "$WUNDERGROUND_KEY"
           }
         }
       }
