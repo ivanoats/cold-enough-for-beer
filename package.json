@@ -1,7 +1,7 @@
 {
   "name": "my-aerobatic-demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "A web site that tells you if your location is cold enough to store beer outside",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
