@@ -6,7 +6,7 @@ This repository demonstrates two [Aerobatic](http://www.aerobatic.com) hosting f
 
 The staging branch has the working app. It uses the [Weather Underground](https://www.wunderground.com/weather/api/d/docs?d=data/index&MR=1) api to geolocate your IP and find the temperature there.
  
-Visit http://staging.coldout.beer
+Visit https://staging.coldout.beer
 See: [Deploy Settings](https://bitbucket.org/ivanoats/cold-enough-for-beer/addon/aerobatic-bitbucket-addon/aerobatic-app-dashboard)
 
 Documentation is available on hosting multiple branches: [Deployment Management](https://www.aerobatic.com/docs/deployment-management)
