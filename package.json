@@ -4,7 +4,8 @@
   "description": "A web site that tells you if your location is cold enough to store beer outside",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "live-server --port=3000"
   },
   "repository": {
     "type": "git",
@@ -27,5 +28,8 @@
   },
   "author": "Ivan Storck",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/ivanoats/aerobatic-cf-demo#readme"
+  "homepage": "https://bitbucket.org/ivanoats/aerobatic-cf-demo#readme",
+  "devDependencies": {
+    "live-server": "^0.9.2"
+  }
 }
