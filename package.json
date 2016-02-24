@@ -20,9 +20,6 @@
         "path": "/api",
         "options": {
           "url": "http://api.wunderground.com/api/$WUNDERGROUND_KEY/geolookup/q/autoip.json",
-          "query": {
-            "key": "$WUNDERGROUND_KEY"
-          }
         }
       }
     ]
