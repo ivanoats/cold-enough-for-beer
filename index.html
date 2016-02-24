@@ -11,7 +11,7 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js">
   </script>
   <script>
-  $.get('/api/wa/seattle', updater);
+  $.get('/api', updater);
   function updater(data) {
     console.log(data);
     var coldEnough = data.current_observation.temp_f <= 46;
@@ -20,7 +20,7 @@
     } else {
       $('h2.answer').text('No way, José');
     }
-  };
+  }
   </script>
 </body>
 </html>
