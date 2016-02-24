@@ -1,5 +1,5 @@
 {
-  "name": "my-aerobatic-demo",
+  "name": "cold-enough-for-beer",
   "version": "1.0.0",
   "description": "A web site that tells you if your location is cold enough to store beer outside",
   "main": "index.js",
