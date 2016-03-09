@@ -2,14 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Is it cold enough to store Beer outside? An Aerobatic Demo</title>
+  <title>Is it cold enough to store beer outside?</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
 </head>
 <body>
-  <h1> Hello there!</h1>
-  <p>You should be on the <a href="https://staging.coldout.beer">staging</a> branch if you want to see the working app.</p>
-  <p>This is a demonstration site. Check out the <a href="https://bitbucket.org/ivanoats/cold-enough-for-beer/README.md">README</a> and <a href="https://bitbucket.org/ivanoats/cold-enough-for-beer">code</a>.</p>
-  <p>Proudly hosted by <a href="http://www.aerobatic.com">Aerobatic</a>-making static web site hosting awesome.</p>
+  <h1>Is it cold enough to store beer outside?</h1>
+  <h2 class="answer">Maybe. Checking.... Please stand by. </h2>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js">
+  </script>
+  <script>
 
+    $.get('/api', updater);
+
+    function updater(data) {
+      console.log(data);
+      var coldEnough = data.current_observation.temp_f <= 46;
+      if (coldEnough) {
+        $('h2.answer').text('HELL YEAH!');
+      } else {
+        $('h2.answer').text('No way, José');
+      }
+    }
+
+  </script>
 </body>
 </html>

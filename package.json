@@ -1,0 +1,35 @@
+{
+  "name": "cold-enough-for-beer",
+  "version": "1.0.0",
+  "description": "A web site that tells you if your location is cold enough to store beer outside",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "live-server --port=3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/ivanoats/aerobatic-cf-demo.git"
+  },
+  "_aerobatic": {
+    "router": [
+      {
+        "module": "webpage"
+      },
+      {
+        "module": "express-request-proxy",
+        "path": "/api",
+        "method": "GET",
+        "options": {
+          "url": "http://api.wunderground.com/api/$WUNDERGROUND_KEY/conditions/geolookup/q/autoip.json"
+        }
+      }
+    ]
+  },
+  "author": "Ivan Storck",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/ivanoats/aerobatic-cf-demo#readme",
+  "devDependencies": {
+    "live-server": "^0.9.2"
+  }
+}
