@@ -16,12 +16,12 @@
     $.get('/api', updater);
 
     function updater(data) {
-      console.log(data);
-      var coldEnough = data.current_observation.temp_f <= 46;
+      var temp_f = data.current_observation.temp_f;
+      var coldEnough = temp_f <= 46;
       if (coldEnough) {
-        $('h2.answer').text('HELL YEAH!');
+        $('h2.answer').text('🍺HELL YEAH!');
       } else {
-        $('h2.answer').text('No way, José');
+        $('h2.answer').text('🌴No way, José. It\'s only ' + 'degrees.');
       }
     }
 
