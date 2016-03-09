@@ -39,6 +39,7 @@
     $.get('/api', updater);
 
     function updater(data) {
+      console.log(data.current_observation);
       var temp_f = data.current_observation.temp_f;
       var coldEnough = temp_f <= 46;
       if (coldEnough) {
