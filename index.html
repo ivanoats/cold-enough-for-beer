@@ -41,6 +41,9 @@
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(function(p) {
         $.get('/geolookup/' + p.coords.latitude + '/' + p.coords.longitude, updater)
+        .fail(function() {
+          $.get('/api/', updater)
+        })
       })
     } else {
       $.get('/api', updater)
@@ -51,7 +54,7 @@
       var temp_f = data.current_observation.temp_f;
       var coldEnough = temp_f <= 46
       if (coldEnough) {
-        $('h2.answer').text('🍺HELL YEAH!')
+        $('h2.answer').text('🍺 HELL YEAH!')
       } else {
         $('h2.answer').text('🌴 No way, José. It\'s only ' + temp_f + ' degrees.')
       }
