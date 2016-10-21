@@ -38,16 +38,22 @@
   </script>
   <script>
 
-    $.get('/api', updater);
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(function(p) {
+        $.get('/geolookup/' + p.coords.latitude + '/' + p.coords.longitude, updater)
+       }
+    } else {
+      $.get('/api', updater)
+    }
 
     function updater(data) {
       console.log(data.current_observation);
       var temp_f = data.current_observation.temp_f;
-      var coldEnough = temp_f <= 46;
+      var coldEnough = temp_f <= 46
       if (coldEnough) {
-        $('h2.answer').text('🍺HELL YEAH!');
+        $('h2.answer').text('🍺HELL YEAH!')
       } else {
-        $('h2.answer').text('🌴 No way, José. It\'s only ' + temp_f + ' degrees.');
+        $('h2.answer').text('🌴 No way, José. It\'s only ' + temp_f + ' degrees.')
       }
       $('span.location').text(data.current_observation.display_location.full)
     }
