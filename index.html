@@ -41,7 +41,7 @@
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(function(p) {
         $.get('/geolookup/' + p.coords.latitude + '/' + p.coords.longitude, updater)
-       }
+      })
     } else {
       $.get('/api', updater)
     }
