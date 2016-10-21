@@ -30,7 +30,7 @@
         "path": "/geolookup/:lat/:long",
         "method": "GET",
         "options": {
-          "url": "http://api.wunderground.com/api/$WUNDERGROUND_KEY/conditions/lang:en/q/:lat,:long.json",
+          "url": "http://api.wunderground.com/api/$WUNDERGROUND_KEY/conditions/q/:lat,:long.json",
           "cacheMaxAge": 30
         }
       }
