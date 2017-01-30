@@ -6,7 +6,7 @@ This repository demonstrates two [Aerobatic](http://www.aerobatic.com) hosting f
 
 The master branch has the working app. It uses the [Weather Underground](https://www.wunderground.com/weather/api/d/docs?d=data/index&MR=1) api to geolocate your IP and find the temperature there.
 
-Visit http://staging.coldout.beer
+Visit https://coldout.beer
 
 Documentation is available on hosting multiple branches: [Deployment Management](https://www.aerobatic.com/docs/deployment-management)
 
