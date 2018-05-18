@@ -1,66 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Is it cold enough to store beer outside?</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
 </head>
+
 <body>
   <!-- facebook JS SDK -->
   <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=170720536310683";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+  <script>(function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=170720536310683";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
   <!-- end facebook JS SDK -->
 
   <h1>Is it cold enough to store beer outside?</h1>
   <h2 class="answer">Maybe. Checking.... Please stand by. </h2>
-  <p>Your location was auto-detected as: <span class="location">Unknown</span></p>
-  <p style="margin-top: 4em">The <a href="http://craftbeerrestaurant.com/Craft_Beer_Restaurant/Temperature_Guidelines.html">Craft Beer Restaurant</a> site recommends beer be stored at 46 degrees Farenheight or less outside.</p>
+  <p>Your location was auto-detected as:
+    <span class="location">Unknown</span>
+  </p>
+  <p style="margin-top: 4em">The
+    <a href="http://craftbeerrestaurant.com/Craft_Beer_Restaurant/Temperature_Guidelines.html">Craft Beer Restaurant</a> site recommends beer be stored at 46 degrees Farenheight or less outside.</p>
 
-<!-- social buttons -->
-<div class="social twitter">
-  <a href="https://twitter.com/share" class="twitter-share-button" data-text="Is it Cold Enough for Beer Outside?" data-via="ivanoats" data-related="aerobaticapp" data-hashtags="coldenoughforbeer">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-</div>
-<div class="social twitter">
-  <div class="fb-like" data-href="https://www.facebook.com/coldbeveragesoutside/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-</div>
-<!-- end social buttons -->
+  <!-- social buttons -->
+  <div class="social twitter">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-text="Is it Cold Enough for Beer Outside?" data-via="ivanoats"
+      data-related="aerobaticapp" data-hashtags="coldenoughforbeer">Tweet</a>
+    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+  </div>
+  <div class="social twitter">
+    <div class="fb-like" data-href="https://www.facebook.com/coldbeveragesoutside/" data-layout="standard" data-action="like"
+      data-show-faces="true" data-share="true"></div>
+  </div>
+  <!-- end social buttons -->
 
-<p>Proudly hosted by <a href="https://www.aerobatic.com">Aerobatic</a>. Check out <a href="https://www.aerobatic.com/blog/is-it-cold-enough-for-beer">how I made this site</a>.
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js">
+  <p>Don't drink and drive. Use
+    <a href="https://getmigo.com">Migo</a> to find a rideshare or cab.</p>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js">
   </script>
   <script>
-
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(function(p) {
-        $.get('/geolookup/' + p.coords.latitude + '/' + p.coords.longitude, updater)
-        .fail(function() {
-          $.get('/api/', updater)
-        })
-      })
-    } else {
-      $.get('/api', updater)
+    function round(number, precision) {
+      var shift = function (number, precision, reverseShift) {
+        if (reverseShift) {
+          precision = -precision;
+        }
+        var numArray = ("" + number).split("e");
+        return +(numArray[0] + "e" + (numArray[1] ? (+numArray[1] + precision) : precision));
+      };
+      return shift(Math.round(shift(number, precision, false)), precision, true);
     }
 
-    function updater(data) {
-      console.log(data.current_observation);
-      var temp_f = data.current_observation.temp_f;
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(function (p) {
+        $.get('https://api.weather.gov/points/' + p.coords.latitude + ',' + p.coords.longitude, getFirstStation)
+          .fail(function () {
+            $('h2.answer').text('Sorry, geolocation did not work, or is not enabled in your browser')
+          })
+      })
+    } else {
+      $('h2.answer').text('Sorry, geolocation is not available in your browser')
+    }
+
+    // get the list of weather stations near the user's location
+    function getFirstStation(data) {
+      var observationStationsURL = data.properties.observationStations
+      $.get(observationStationsURL, function (stations) {
+        stationData(stations.observationStations[0])
+      })
+        .fail(function () {
+          $('h2.answer').text('Sorry, the Weather Service API observations stations list was not available')
+        })
+    }
+
+    // get current observation for station
+    function stationData(url) {
+      $.get(url, function (stationData) {
+        $.get(`https://api.weather.gov/stations/${stationData.properties.stationIdentifier}/observations/current`, function (data) {
+          updater(data.properties.temperature.value)
+          $('span.location').text(stationData.properties.name)
+        })
+      })
+    }
+
+    function updater(tmp) {
+
+      var temp_f = round((tmp * (9 / 5)) + 32, 0)
       var coldEnough = temp_f <= 46
       if (coldEnough) {
         $('h2.answer').text('🍺 HELL YEAH!')
       } else {
         $('h2.answer').text('🌴 No way, José. It\'s only ' + temp_f + ' degrees.')
       }
-      $('span.location').text(data.current_observation.display_location.full)
+
     }
 
   </script>
 </body>
+
 </html>

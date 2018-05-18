@@ -1,45 +1,26 @@
 {
-  "name": "cold-enough-for-beer",
-  "version": "1.0.0",
-  "description": "A web site that tells you if your location is cold enough to store beer outside",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "live-server --port=3000"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@bitbucket.org:ivanoats/cold-enough-for-beer.git"
-  },
-  "_aerobatic": {
-    "router": [
-      {
-        "module": "webpage"
-      },
-      {
-        "module": "express-request-proxy",
-        "path": "/api",
-        "method": "GET",
-        "options": {
-          "url": "http://api.wunderground.com/api/$WUNDERGROUND_KEY/conditions/geolookup/q/autoip.json",
-          "cacheMaxAge": 30
-        }
-      },
-      {
-        "module": "express-request-proxy",
-        "path": "/geolookup/:lat/:long",
-        "method": "GET",
-        "options": {
-          "url": "http://api.wunderground.com/api/$WUNDERGROUND_KEY/conditions/q/:lat,:long.json",
-          "cacheMaxAge": 30
-        }
-      }
-    ]
-  },
-  "author": "Ivan Storck",
-  "license": "ISC",
-  "homepage": "https://coldout.beer",
-  "devDependencies": {
-    "live-server": "^1.1.0"
-  }
+    "name": "cold-enough-for-beer",
+    "version": "1.0.0",
+    "description":
+        "A web site that tells you if your location is cold enough to store beer outside",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "serve": "live-server --port=3000"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@bitbucket.org:ivanoats/cold-enough-for-beer.git"
+    },
+    "author": "Ivan Storck",
+    "license": "ISC",
+    "homepage": "https://coldout.beer",
+    "devDependencies": {
+        "eslint": "^4.19.1",
+        "eslint-config-standard": "^11.0.0",
+        "eslint-plugin-node": "^6.0.1",
+        "eslint-plugin-promise": "^3.7.0",
+        "eslint-plugin-standard": "^3.1.0",
+        "live-server": "^1.1.0"
+    }
 }
