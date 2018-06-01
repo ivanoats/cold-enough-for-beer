@@ -5,7 +5,8 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "serve": "live-server --port=3000"
+        "serve": "live-server --port=3000",
+        "deploy": "scotty  --website --bucket=coldout.beer --update"
     },
     "repository": {
         "type": "git",
