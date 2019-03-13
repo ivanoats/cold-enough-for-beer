@@ -1,3 +1,4 @@
+/* global geolocator */
 function round(number, precision) {
   var shift = function(number, precision, reverseShift) {
     if (reverseShift) {
