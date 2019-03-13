@@ -1,27 +1,35 @@
 {
-    "name": "cold-enough-for-beer",
-    "version": "1.0.0",
-    "description": "A web site that tells you if your location is cold enough to store beer outside",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "serve": "live-server --port=3000",
-        "deploy": "scotty  --website --bucket=coldout.beer --update"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git@bitbucket.org:ivanoats/cold-enough-for-beer.git"
-    },
-    "author": "Ivan Storck",
-    "license": "ISC",
-    "homepage": "https://coldout.beer",
-    "devDependencies": {
-        "eslint": "^4.19.1",
-        "eslint-config-standard": "^11.0.0",
-        "eslint-plugin-node": "^6.0.1",
-        "eslint-plugin-promise": "^3.8.0",
-        "eslint-plugin-standard": "^3.1.0",
-        "live-server": "^1.2.0",
-        "live-server-https": "0.0.2"
-    }
+  "name": "cold-enough-for-beer",
+  "version": "1.0.0",
+  "description": "A web site that tells you if your location is cold enough to store beer outside",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "live-server --port=3000",
+    "deploy": "scotty  --website --bucket=coldout.beer --update"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:ivanoats/cold-enough-for-beer.git"
+  },
+  "author": "Ivan Storck",
+  "license": "MIT",
+  "homepage": "https://coldout.beer",
+  "devDependencies": {
+    "eslint": "^5.15.1",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-prettier-standard": "^2.0.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "live-server": "^1.2.1",
+    "live-server-https": "0.0.2",
+    "prettier": "^1.16.4"
+  },
+  "dependencies": {
+    "@types/jquery": "^3.3.29"
+  }
 }
