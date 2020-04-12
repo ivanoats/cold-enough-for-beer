@@ -1,6 +1,6 @@
 /* global geolocator */
 function round(number, precision) {
-  var shift = function(number, precision, reverseShift) {
+  var shift = function (number, precision, reverseShift) {
     if (reverseShift) {
       precision = -precision
     }
@@ -14,7 +14,7 @@ function round(number, precision) {
   return shift(Math.round(shift(number, precision, false)), precision, true)
 }
 
-window.onload = function() {
+window.onload = function () {
   var options = {
     enableHighAccuracy: true,
     timeout: 10000,
@@ -22,7 +22,7 @@ window.onload = function() {
     maximumAge: 0
   }
 
-  geolocator.locate(options, function(err, location) {
+  geolocator.locate(options, function (err, location) {
     if (err) return geoLocationFail(err)
     console.log(location)
     $.get(
@@ -31,7 +31,7 @@ window.onload = function() {
         ',' +
         location.coords.longitude,
       getFirstStation
-    ).fail(function() {
+    ).fail(function () {
       $('h2.answer').text('Sorry, weather service API did not work right now')
     })
   })
@@ -47,9 +47,9 @@ function geoLocationFail(err) {
 // get the list of weather stations near the user's location
 function getFirstStation(data) {
   var observationStationsURL = data.properties.observationStations
-  $.get(observationStationsURL, function(stations) {
+  $.get(observationStationsURL, function (stations) {
     stationData(stations.observationStations[0])
-  }).fail(function() {
+  }).fail(function () {
     $('h2.answer').text(
       'Sorry, the Weather Service API observations stations list was not available'
     )
@@ -58,12 +58,10 @@ function getFirstStation(data) {
 
 // get current observation for station
 function stationData(url) {
-  $.get(url, function(stationData) {
+  $.get(url, function (stationData) {
     $.get(
-      `https://api.weather.gov/stations/${
-        stationData.properties.stationIdentifier
-      }/observations/current`,
-      function(data) {
+      `https://api.weather.gov/stations/${stationData.properties.stationIdentifier}/observations/current`,
+      function (data) {
         updater(data.properties.temperature.value)
         $('span.location').text(stationData.properties.name)
       }

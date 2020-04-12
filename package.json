@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "live-server --port=3000 --https=/usr/local/lib/node_modules/live-server-https",
+    "lint": "eslint index.js",
     "deploy": "scotty  --website --bucket=coldout.beer --update"
   },
   "repository": {
@@ -16,20 +17,21 @@
   "license": "MIT",
   "homepage": "https://coldout.beer",
   "devDependencies": {
-    "eslint": "^5.15.1",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-config-prettier-standard": "^2.0.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-config-prettier-standard": "^3.0.1",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "live-server": "^1.2.1",
     "live-server-https": "0.0.2",
-    "prettier": "^1.16.4"
+    "prettier": "^2.0.4",
+    "prettier-config-standard": "^1.0.1"
   },
   "dependencies": {
-    "@types/jquery": "^3.3.29"
+    "@types/jquery": "^3.3.34"
   }
 }

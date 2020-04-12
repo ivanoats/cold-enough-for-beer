@@ -9,8 +9,8 @@
   <meta name="msapplication-TileColor" content="#ffffff" />
   <meta name="msapplication-TileImage" content="images/beer-144-270546.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="//cdn.muicss.com/mui-0.9.41/css/mui.min.css" rel="stylesheet" type="text/css" />
-  <script src="//cdn.muicss.com/mui-0.9.41/js/mui.min.js"></script>
+  <link href="//cdn.muicss.com/mui-0.10.1/css/mui.min.css" rel="stylesheet" type="text/css" />
+  <script src="//cdn.muicss.com/mui-0.10.1/js/mui.min.js"></script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3487613-10"></script>
   <script>
@@ -23,17 +23,14 @@
 </head>
 
 <body>
-  <!-- facebook JS SDK -->
-  <script>(function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=170720536310683";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-  <!-- end facebook JS SDK -->
-  <header class="mui-appbar mui--z1 mui--text-center">
-    <h1>ColdOut.Beer</h1>
+  <header class="mui-appbar mui--z1">
+    <table>
+      <tbody>
+        <tr class="mui--appbar-height">
+          <td style="font-size: 2em;" class="mui-text-title">ColdOut.beer</td>
+        </tr>
+      </tbody>
+    </table>
   </header>
   <div id="mui-container">
     <div class="mui-panel">
@@ -76,6 +73,15 @@
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/geolocator/2.1.5/geolocator.min.js"></script>
   <script src="index.js"></script>
+  <!-- facebook JS SDK -->
+  <script>(function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=170720536310683";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+  <!-- end facebook JS SDK -->
 </body>
 
 </html>
