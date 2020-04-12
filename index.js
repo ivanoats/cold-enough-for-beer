@@ -75,6 +75,7 @@ function updater(tmp) {
   if (coldEnough) {
     $('h2.answer').text('🍺 HELL YEAH!')
   } else {
-    $('h2.answer').text('🌴 No way, José. It"s only ' + tempF + ' degrees.')
+    // eslint-disable-next-line prettier/prettier
+    $('h2.answer').text('🌴 No way, José. It\'s only ' + tempF + ' degrees.')
   }
 }
