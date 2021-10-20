@@ -5,33 +5,27 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "live-server --port=3000 --https=/usr/local/lib/node_modules/live-server-https",
-    "lint": "eslint index.js",
-    "deploy": "scotty  --website --bucket=coldout.beer --update"
+    "serve": "live-server --ignore=.git/**/* --port=3000 --https=./node_modules/live-server-https",
+    "lint": "eslint index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:ivanoats/cold-enough-for-beer.git"
+    "url": "git@github.com:ivanoats/cold-enough-for-beer.git"
   },
   "author": "Ivan Storck",
   "license": "MIT",
   "homepage": "https://coldout.beer",
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.1",
-    "eslint-config-prettier-standard": "^3.0.1",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.20.2",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-prettier": "^4.0.0",
     "live-server": "^1.2.1",
     "live-server-https": "0.0.2",
-    "prettier": "^2.0.4",
-    "prettier-config-standard": "^1.0.1"
+    "prettier": "^2.4.1"
   },
   "dependencies": {
-    "@types/jquery": "^3.3.34"
+    "@types/jquery": "^3.5.7"
   }
 }

@@ -1,14 +1,12 @@
 /* global geolocator */
 function round(number, precision) {
-  var shift = function (number, precision, reverseShift) {
+  var shift = function (num, precis, reverseShift) {
     if (reverseShift) {
-      precision = -precision
+      precis = -precis
     }
-    var numArray = ('' + number).split('e')
+    var numArray = ('' + num).split('e')
     return +(
-      numArray[0] +
-      'e' +
-      (numArray[1] ? +numArray[1] + precision : precision)
+      numArray[0] + 'e' + (numArray[1] ? +numArray[1] + precis : precis)
     )
   }
   return shift(Math.round(shift(number, precision, false)), precision, true)
@@ -22,9 +20,9 @@ window.onload = function () {
     maximumAge: 0
   }
 
+  // @ts-ignore
   geolocator.locate(options, function (err, location) {
-    if (err) return geoLocationFail(err)
-    console.log(location)
+    if (err) return geoLocationFail(err, location)
     $.get(
       'https://api.weather.gov/points/' +
         location.coords.latitude +
@@ -37,11 +35,12 @@ window.onload = function () {
   })
 }
 
-function geoLocationFail(err) {
+function geoLocationFail(err, location) {
   $('h2.answer').text(
     'Sorry, geolocation did not work, or is not enabled in your browser'
   )
   console.error(err.message)
+  console.log(location)
 }
 
 // get the list of weather stations near the user's location
@@ -58,12 +57,12 @@ function getFirstStation(data) {
 
 // get current observation for station
 function stationData(url) {
-  $.get(url, function (stationData) {
+  $.get(url, function (station) {
     $.get(
-      `https://api.weather.gov/stations/${stationData.properties.stationIdentifier}/observations/current`,
+      `https://api.weather.gov/stations/${station.properties.stationIdentifier}/observations/`,
       function (data) {
-        updater(data.properties.temperature.value)
-        $('span.location').text(stationData.properties.name)
+        updater(data.features[0].properties.temperature.value)
+        $('span.location').text(station.properties.name)
       }
     )
   })
@@ -75,7 +74,6 @@ function updater(tmp) {
   if (coldEnough) {
     $('h2.answer').text('🍺 HELL YEAH!')
   } else {
-    // eslint-disable-next-line prettier/prettier
     $('h2.answer').text('🌴 No way, José. It\'s only ' + tempF + ' degrees.')
   }
 }

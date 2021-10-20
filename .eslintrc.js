@@ -5,11 +5,14 @@ module.exports = {
     jquery: true,
     node: true
   },
+  globals: {
+    geolocator: 'readonly'
+  },
   parserOptions: {
     ecmaVersion: 2017,
     sourceType: 'module'
   },
-  extends: ['standard', 'prettier', 'prettier-standard'],
+  extends: ['prettier'],
   rules: {
     indent: ['error', 2],
     'linebreak-style': ['error', 'unix'],
