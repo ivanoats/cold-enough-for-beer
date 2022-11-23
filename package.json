@@ -16,16 +16,16 @@
   "license": "MIT",
   "homepage": "https://coldout.beer",
   "devDependencies": {
-    "eslint": "^8.0.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.25.2",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "live-server": "^1.2.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "live-server": "^1.2.2",
     "live-server-https": "0.0.2",
-    "prettier": "^2.4.1"
+    "prettier": "^2.7.1"
   },
   "dependencies": {
-    "@types/jquery": "^3.5.7"
+    "@types/jquery": "^3.5.14"
   }
 }
