@@ -22,17 +22,23 @@ window.onload = function () {
       maxZoom: 19,
       attribution: '© OpenStreetMap'
     }).addTo(Window.map);
-    setInterval(updater, 5000, location)
+    setInterval(updater, 7000, location)
     updater(position)
   })
+}
+
+function randomFromXtoY(x,y) {
+  const r =  round(Math.random() * (y-x),0)
+  console.log(r+x)
+  return r + x
 }
 
 function updater(location) {
   navigator.geolocation.getCurrentPosition(function(l2){
     console.log(l2)
     const speed = round(mstomph(l2.coords.speed), 2)
-    $('h2.answer').text(speed)
-    Window.map.setView([l2.coords.latitude, l2.coords.longitude], 13);
+    $('h2.answer').text(`${speed} mph`)
+    Window.map.setView([l2.coords.latitude, l2.coords.longitude], randomFromXtoY(9,15));
     // const marker = L.marker([l2.coords.latitude, l2.coords.longitude]).addTo(Window.map);
   })
 }
