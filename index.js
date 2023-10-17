@@ -1,10 +1,14 @@
 /* global geolocator */
+/**
+ * @param {number} number
+ * @param {number} precision
+ */
 function round(number, precision) {
-  var shift = function (num, precis, reverseShift) {
+  const shift = function (num, precis, reverseShift) {
     if (reverseShift) {
       precis = -precis
     }
-    var numArray = ('' + num).split('e')
+    const numArray = ('' + num).split('e')
     return +(
       numArray[0] + 'e' + (numArray[1] ? +numArray[1] + precis : precis)
     )
@@ -13,7 +17,7 @@ function round(number, precision) {
 }
 
 window.onload = function () {
-  var options = {
+  const options = {
     enableHighAccuracy: true,
     timeout: 10000,
     maximumWait: 20000,
@@ -45,7 +49,7 @@ function geoLocationFail(err, location) {
 
 // get the list of weather stations near the user's location
 function getFirstStation(data) {
-  var observationStationsURL = data.properties.observationStations
+  const observationStationsURL = data.properties.observationStations
   $.get(observationStationsURL, function (stations) {
     stationData(stations.observationStations[0])
   }).fail(function () {
@@ -69,8 +73,8 @@ function stationData(url) {
 }
 
 function updater(tmp) {
-  var tempF = round(tmp * (9 / 5) + 32, 0)
-  var coldEnough = tempF <= 46
+  const tempF = round(tmp * (9 / 5) + 32, 0)
+  const coldEnough = tempF <= 46
   if (coldEnough) {
     $('h2.answer').text('🍺 HELL YEAH!')
   } else {
